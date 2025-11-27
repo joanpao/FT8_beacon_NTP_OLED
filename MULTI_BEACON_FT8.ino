@@ -40,9 +40,11 @@
 // NTP / WiFi
 #include <WiFi.h>
 #include "time.h"
-// Configura tu Wi-Fi
-const char* ssid     = "TP-Link_7254";
-const char* password = "63341379";
+
+// Configura aqui tu Wi-Fi
+const char* ssid     = "XXXXX";
+const char* password = "XXXXX";
+
 // NTP settings
 const char* ntpServer = "pool.ntp.org";
 const long  gmtOffset_sec = 0;      // UTC
@@ -97,13 +99,9 @@ Hay que corregir segun cada SI53551 en particular
 #define JT9_DEFAULT_FREQ        14078700UL
 #define JT65_DEFAULT_FREQ       14078300UL
 #define JT4_DEFAULT_FREQ        14078500UL
-//WSPR STANDAR 14097200 real 14099270 correccion -2070 => 14095130
 #define WSPR_DEFAULT_FREQ       14095100UL
-//
-#define FSQ_DEFAULT_FREQ        7105350ULL     // Base freq is 1350 Hz higher than dial freq in USB
-//FT8 STANDAR 14074100 correccion -2070
+#define FSQ_DEFAULT_FREQ        7105350ULL     
 #define FT8_DEFAULT_FREQ        14072000ULL 
-//
 #define DEFAULT_MODE            MODE_JT65
 
 // DEFINICION DE UN CARRUSEL DE FRECUENCIAS PARA UN MODO FT8
@@ -121,11 +119,11 @@ Hay que corregir segun cada SI53551 en particular
   50313000UL   // 6 m
 };*/
 
-// Frecuencia corregida 20m
+// Frecuencias solo 20m (varia para no machacar una frecuencia)
 const unsigned long ft8_bands[] = {
+   14071000ULL,
    14072000ULL,
-   14073000ULL,
-   14074000ULL
+   14073000ULL
 };
 const int num_bands = sizeof(ft8_bands) / sizeof(ft8_bands[0]);
 int current_band_index = 0;
@@ -156,13 +154,14 @@ JTEncode jtencode;
 // Global variables
 unsigned long freq;
 // Real 
-// char message[] = "CQ EA5JTT IM99";
-// char message[] = "CQ EA5JTT AA00"; Pruebas
+// char message[] = "CQ XXXXXX NNNN";
+// char message[] = "CQ XXXXXX NNNN"; Pruebas
 // Test
-char message[] = "CQ EA5JTT IM99";
-char call[] = "EA5JTT";
-char loc[] = "IM99";
-uint8_t dbm = 27;
+char message[] = "CQ XXXXXX NNNN";
+char call[] = "XXXXXX";
+char loc[] = "NNNN";
+// OUTPUT POWER IN dBm
+uint8_t dbm = NN;
 uint8_t tx_buffer[255];
 enum mode cur_mode = DEFAULT_MODE;
 uint8_t symbol_count;
