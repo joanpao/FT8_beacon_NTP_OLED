@@ -83,5 +83,6 @@ Upload the firmware
 
 📄 License
 Free for amateur radio and educational use.
+More information about dis project in spanish language in: https://ea5jtt.blogspot.com/2025/11/ft8-tx-beacon-arduino-esp32.html
 If you modify or distribute, please credit EA5JTT.
 
